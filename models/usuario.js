@@ -3,7 +3,7 @@ const Usuario = mongoose.model('Usuario', {
     nome:String,
     email: String,
     senha: String,
-    ativo:Boolean
+    ativo: Boolean
 });
 
 module.exports = Usuario;

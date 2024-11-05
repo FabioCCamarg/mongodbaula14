@@ -8,13 +8,14 @@ const DB_PASSWORD = process.env.DB_PASSWORD
 const usuarioRouter = require("./routes/usuario");
 // const lista1Router = require('./routes/lista1');
 const lista2Router = require("./routes/lista2");
-
+const alunoRouter = require('./routes/aluno')
 const app = express();
 
 app.use(express.json());
 app.use("/usuario", usuarioRouter);
 // app.use('/lista1', lista1Router);
 app.use("/lista2", lista2Router);
+app.use("/aluno", alunoRouter);
 
 mongoose
   .connect(

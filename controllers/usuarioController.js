@@ -1,27 +1,21 @@
-const usuarioModel = require('../models/usuarios');
-import { create } from './../node_modules/@types/whatwg-url/lib/URLSearchParams.d';
+const usuarioModel = require("../models/usuario");
 
-exports.criarUsuario = async(req, res) =>{
-  const { nome, email, senha, ativo } = req.body;
-
-  const usuario = {
-    nome, email, senha, ativo
-  }
-
+//POST  http://localhost:3000/usuario
+exports.criarUsuario = async (req, res) => {
   try {
-    await Usuario.create(usuario);
-    res.status(201).json(usuario);
+    await usuarioModel.create(req.body);
+    res.status(201).json(req.body);
+  } catch (error) {
+    res.status(400).json({ error: error });
+  }
+};
+
+//GET http://localhost:3000/usuario
+exports.obterTodos = async (req, res) => {
+  try {
+    const usuarios = await usuarioModel.find();
+    res.status(200).json(usuarios);
   } catch (error) {
     res.status(500).json({ error: error });
-
   }
-}
-
-// Lógica para obter todos os usuários
-exports.obterTodos = (req, res) => {
-  res.json({"mensage": "Obter todos"});
-};
-// Lógica para criar um novo usuário
-exports.inserir = (req, res) => {
-  res.status(201).json({"mensagem": "Inserir novo usuário!"});
 };
