@@ -1,4 +1,0 @@
-tAJqilBcMKAfknnc
-
-
-mongodb+srv://costafabiocamargo:tAJqilBcMKAfknnc@cluster0.0zfmr.mongodb.net/
